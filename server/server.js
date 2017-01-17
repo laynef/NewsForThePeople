@@ -8,7 +8,11 @@ const routes = require('./routes')
 const cors = require('cors')
 const config = require('../config')
 const mongoose = require('mongoose')
+const cookieParser = require('cookie-parser')
+const flash = require('express-flash')
+const session = require('express-session')
 const fs = require('fs')
+const auths = require('./auth')
 
 // port settings
 let port = process.env.PORT || 4200
@@ -24,6 +28,9 @@ app.use(express.static('dist'))
 app.use(cors())
 app.use(morgan('dev'))
 app.use(parser.json())
+app.use(session({ secret: 'fuck_hackers', resave: true, saveUninitialized: true }))
+app.use(cookieParser())
+app.use(flash())
 
 // database connection
 mongoose.connect(config.database.mongo)
@@ -42,6 +49,7 @@ app.get('*', (req, res) => {
 })
 
 app.use('/api', routes) // when you add api routes in routes.js
+app.use('/auth', auths) // when you add api routes in routes.js
 
 // Web socket on connection 
 io.on('connection', (socket) => {

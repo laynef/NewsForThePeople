@@ -25,6 +25,7 @@ module.exports = {
       'zone.js/dist/zone'
     ]
   },
+  devTools: 'source-map',
   output: {
     path: './dist',
     filename: '[name].bundle.js'
@@ -55,4 +56,4 @@ module.exports = {
     })
   ]
 
-};
+}
