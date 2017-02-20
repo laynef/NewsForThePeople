@@ -1,0 +1,31 @@
+html {
+  background: url('http://images4.fanpop.com/image/photos/19900000/SunSet-sunsets-and-sunrises-19955107-2560-1817.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  background-color: transparent !important;
+}
+
+#mainPage {
+  h1 {
+      text-align: center;
+      font-size: 32px;
+      color: white;
+      text-shadow: 2px 2px black;
+      margin-top: 75px;
+  }
+}
+
+.topNavLink {
+  text-decoration: none;
+  color: #9d9d9d;
+  
+  :hover {
+    color: rgba(255,255,255, 1);
+    text-decoration: none;
+  }
+}
