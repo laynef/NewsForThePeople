@@ -7,18 +7,17 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import reduxThunk from 'redux-thunk'
 import createLogger from 'redux-logger'
 import ReduxPromise from 'redux-promise'
-import { reducers } from './combineReducers'
+import reducers from './redux/store/combineReducers'
 
+// pages
 import MasterPage from './pages/MasterPage'
 import MainPage from './pages/MainPage/MainPage'
 
 
 const logger = createLogger()
-
 const store = createStore(reducers,
     applyMiddleware(reduxThunk, ReduxPromise, logger)
 )
-
 
 class Root extends React.Component {
 
